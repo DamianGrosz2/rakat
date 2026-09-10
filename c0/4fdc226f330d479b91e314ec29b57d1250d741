@@ -1,0 +1,83 @@
+.claude/settings.json
+  s_66a50db30640bc::t_3284de3fc9e084 1-5
+.gitignore
+  s_66a50db30640bc::t_ea22a8085d1474 1-43
+.vscode/extensions.json
+  s_66a50db30640bc::t_de25f52e6a2d32 1
+.vscode/settings.json
+  s_66a50db30640bc::t_750943c5b7e966 1-7
+AGENTS.md
+  s_66a50db30640bc::t_b94f9ad741ba5f 1-3
+CLAUDE.md
+  s_66a50db30640bc::t_0760172c9c514e 1
+LICENSE
+  s_66a50db30640bc::t_fae6f931af9635 1-21
+README.md
+  s_66a50db30640bc::t_2051aa9444c9c0 1-56
+app.json
+  s_66a50db30640bc::t_1b746f0bdb9ff2 1-42
+"assets/expo.icon/Assets/expo-symbol 2.svg"
+  s_66a50db30640bc::t_dfe664e5223d1d 1-3
+assets/expo.icon/icon.json
+  s_66a50db30640bc::t_90de40ae302af7 1-40
+package.json
+  s_66a50db30640bc::t_df2be213466e63 1-43
+scripts/reset-project.js
+  s_66a50db30640bc::t_35502871844b33 1-114
+src/app/_layout.tsx
+  s_66a50db30640bc::t_839595a0bf9490 1-18
+src/app/explore.tsx
+  s_66a50db30640bc::t_6d217484b765d8 1-180
+src/app/index.tsx
+  s_66a50db30640bc::t_70989d3a7cfc4a 1-98
+src/components/animated-icon.module.css
+  s_66a50db30640bc::t_12b350fc430839 1-6
+src/components/animated-icon.tsx
+  s_66a50db30640bc::t_f3b020e01e7706 1-148
+src/components/animated-icon.web.tsx
+  s_66a50db30640bc::t_c1c341197af17c 1-108
+src/components/app-tabs.tsx
+  s_66a50db30640bc::t_43e252991c1050 1-32
+src/components/app-tabs.web.tsx
+  s_66a50db30640bc::t_0ee756bbb5cd5c 1-115
+src/components/external-link.tsx
+  s_66a50db30640bc::t_f6bfca59bbb394 1-25
+src/components/hint-row.tsx
+  s_66a50db30640bc::t_44355636362321 1-35
+src/components/themed-text.tsx
+  s_66a50db30640bc::t_70adc61d3da1a2 1-73
+src/components/themed-view.tsx
+  s_66a50db30640bc::t_25c0eadcc3853b 1-16
+src/components/ui/collapsible.tsx
+  s_66a50db30640bc::t_5c300d12157ad4 1-65
+src/components/web-badge.tsx
+  s_66a50db30640bc::t_32052c2c7565f7 1-43
+src/constants/theme.ts
+  s_66a50db30640bc::t_62fcdbe5186b85 1-65
+src/global.css
+  s_66a50db30640bc::t_7a13829b311262 1-9
+src/hooks/use-color-scheme.ts
+  s_66a50db30640bc::t_fac7799fcecdb5 1
+src/hooks/use-color-scheme.web.ts
+  s_66a50db30640bc::t_f577fa3fc3f01c 1-21
+src/hooks/use-theme.ts
+  s_66a50db30640bc::t_0e12b3270f80c3 1-14
+tsconfig.json
+  s_66a50db30640bc::t_c25a582fbb58c9 1-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c04fdc226f330d479b91e314ec29b57d1250d741",
+  "prompts": {},
+  "sessions": {
+    "s_66a50db30640bc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ebc49d2e-7552-4fc0-9a10-c1d0ce5b185a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Damian Gross <grosdamian@gmail.com>"
+    }
+  }
+}
