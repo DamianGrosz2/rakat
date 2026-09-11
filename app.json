@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "rakat",
+    "name": "Rakat",
     "slug": "rakat",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,16 +8,27 @@
     "scheme": "rakat",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "bundleIdentifier": "com.dadama.rakat",
+      "supportsTablet": true,
+      "appleTeamId": "86F4PU33B4",
+      "entitlements": {
+        "com.apple.security.application-groups": [
+          "group.com.dadama.rakat"
+        ]
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Rakat needs your coordinates once, to calculate prayer times on this phone. They are stored locally and never sent anywhere."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#15564A",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.dadama.rakat"
     },
     "web": {
       "output": "static",
@@ -28,15 +39,45 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
+          "backgroundColor": "#EDEEE9",
+          "dark": {
+            "backgroundColor": "#101413",
+            "image": "./assets/images/splash-icon-dark.png",
+            "imageWidth": 110
+          },
           "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "imageWidth": 110
+        }
+      ],
+      "expo-updates",
+      "expo-sqlite",
+      "expo-audio",
+      [
+        "expo-notifications",
+        {
+          "sounds": [
+            "./assets/audio/adhan.wav"
+          ],
+          "color": "#15564A"
+        }
+      ],
+      [
+        "react-native-device-activity",
+        {
+          "appGroup": "group.com.dadama.rakat"
         }
       ]
     ],
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
+    "updates": {
+      "enabled": true,
+      "fallbackToCacheTimeout": 0
     }
   }
 }

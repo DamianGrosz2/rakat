@@ -1,0 +1,704 @@
+<title>Rakat Direction Pitch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap">
+<style>
+/* ---- page chrome tokens (theme-aware). The phone screens below are ARTWORK:
+       their palettes are fixed on purpose and must not follow the viewer. ---- */
+:root{
+  --bg:#EFEFEC; --panel:#FFFFFF; --ink:#16191A; --muted:#5C6467;
+  --rule:#D8D9D4; --chip:#E4E5E0; --accent:#2E4A43;
+  --a-dot:#15564A; --b-dot:#E8B54A;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121413; --panel:#1B1E1D; --ink:#ECEEEC; --muted:#98A09E;
+    --rule:#2C302E; --chip:#252927; --accent:#8FBDB0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121413; --panel:#1B1E1D; --ink:#ECEEEC; --muted:#98A09E;
+  --rule:#2C302E; --chip:#252927; --accent:#8FBDB0;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);
+  font:400 15px/1.55 Archivo,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;padding:0 0 72px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{text-wrap:balance;margin:0}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+header.top{padding:52px 0 28px;border-bottom:1px solid var(--rule)}
+header.top h1{font-size:34px;font-weight:600;letter-spacing:-.02em;margin:10px 0 10px}
+header.top p{margin:0;max-width:62ch;color:var(--muted)}
+.rules{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.rules span{font-size:12px;padding:5px 10px;background:var(--chip);border-radius:2px;color:var(--ink)}
+
+section.surface{padding:44px 0;border-bottom:1px solid var(--rule)}
+section.surface > h2{font-size:22px;font-weight:600;letter-spacing:-.01em;margin:8px 0 6px}
+section.surface > .job{color:var(--muted);max-width:64ch;margin:0 0 30px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+@media(max-width:820px){.pair{grid-template-columns:1fr}}
+.col > .name{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
+.col > .name b{font-size:15px;font-weight:600}
+.col > .name i{font-style:normal;font-size:12px;color:var(--muted)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;align-self:center}
+.dot.a{background:var(--a-dot)} .dot.b{background:var(--b-dot)}
+.col > .why{font-size:13.5px;color:var(--muted);margin:0 0 18px;max-width:46ch}
+.stage{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+
+/* ---------- phone frame ---------- */
+.phone{width:264px;flex:none;border-radius:30px;padding:8px;background:#2A2D2B;
+  box-shadow:0 14px 34px rgba(0,0,0,.20)}
+.screen{border-radius:23px;overflow:hidden;height:540px;display:flex;flex-direction:column;position:relative}
+.statusbar{display:flex;justify-content:space-between;align-items:center;
+  padding:11px 17px 3px;font-size:11px;font-weight:600;letter-spacing:.01em;flex:none}
+.cap{font-size:12px;color:var(--muted);margin-top:9px;width:264px;line-height:1.4}
+
+/* ---------- DIRECTION A : Timetable ---------- */
+.dir-a{
+  --gr:#EDEEE9; --sf:#FFFFFF; --ink0:#171C1A; --ink1:#5E6866;
+  --acc:#15564A; --acc-ink:#F2F1EA; --hair:#CFD3CE; --warn:#A6412B;
+}
+.dir-a .screen{background:var(--gr);color:var(--ink0);font-family:Newsreader,Georgia,serif}
+.dir-a .statusbar{color:var(--ink0)}
+.a-pad{padding:0 17px}
+.a-meta{display:flex;justify-content:space-between;align-items:baseline;padding:8px 17px 12px}
+.a-meta .method{font:600 11px/1 Newsreader,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.a-meta .hij{font-size:12px;color:var(--ink1)}
+.a-now{background:var(--acc);color:var(--acc-ink);padding:15px 17px 17px;display:flex;
+  justify-content:space-between;align-items:flex-end}
+.a-now .lbl{font:600 10px/1 Newsreader,Georgia,serif;letter-spacing:.16em;text-transform:uppercase;opacity:.72}
+.a-now .nm{font-size:20px;font-weight:600;margin-top:5px;letter-spacing:-.01em}
+.a-now .tm{font-size:44px;font-weight:600;line-height:.92;font-variant-numeric:tabular-nums;letter-spacing:-.025em}
+.a-now .in{font-size:12px;opacity:.78;text-align:right;margin-top:4px;font-variant-numeric:tabular-nums}
+.a-now .ar{font-family:Amiri,serif;font-size:21px;letter-spacing:0;opacity:.85;line-height:1}
+.a-table{margin-top:2px}
+.a-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:baseline;
+  padding:8.5px 17px;border-bottom:1px solid var(--hair)}
+.a-row .nm{font-size:15px}
+.a-row .ar{font-family:Amiri,serif;font-size:15px;letter-spacing:0;color:var(--ink1)}
+.a-row .tm{font-size:15px;font-variant-numeric:tabular-nums;min-width:46px;text-align:right}
+.a-row.done{color:var(--ink1)}
+.a-row.done .tm::after{content:"✓";font-size:11px;margin-left:6px;color:var(--acc)}
+.a-row.next{background:var(--sf);font-weight:600}
+.a-row.sun{font-size:13px;color:var(--ink1)}
+.a-nowline{display:flex;align-items:center;gap:7px;padding:0 17px;margin:0}
+.a-nowline .ln{flex:1;height:1px;background:var(--warn)}
+.a-nowline .tg{font:600 10px/1 Newsreader,Georgia,serif;color:var(--warn);
+  letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.a-track{padding:13px 17px 11px;display:flex;justify-content:space-between;align-items:center}
+.a-marks{display:flex;gap:6px}
+.a-marks i{width:19px;height:5px;background:var(--hair);border-radius:1px;display:block}
+.a-marks i.y{background:var(--acc)}
+.a-track .cons{font-size:12px;color:var(--ink1)}
+.a-ayah{margin:0 17px 15px;background:var(--sf);border-top:2px solid var(--acc);padding:13px 14px}
+.a-ayah .q{font-family:"Amiri Quran",Amiri,serif;font-size:23px;line-height:2;letter-spacing:0;
+  direction:rtl;text-align:right;margin:0 0 8px}
+.a-ayah .t{font-size:13px;line-height:1.5;margin:0}
+.a-ayah .r{font:600 10px/1 Newsreader,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink1);margin-top:8px}
+
+/* ---------- DIRECTION B : Horizon ---------- */
+.dir-b{
+  --gr:#0B0F14; --sf:#141C24; --ink0:#E9EEF3; --ink1:#8A98A6;
+  --acc:#E8B54A; --cool:#4A9DD8; --hair:#222C36;
+}
+.dir-b .screen{background:var(--gr);color:var(--ink0);font-family:"IBM Plex Sans",Arial,sans-serif}
+.dir-b .statusbar{color:var(--ink0)}
+.b-meta{display:flex;justify-content:space-between;align-items:baseline;padding:8px 16px 2px}
+.b-meta .method{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.b-meta .hij{font-size:11px;color:var(--ink1)}
+.b-arc{padding:2px 8px 0}
+.b-count{padding:2px 16px 12px;display:flex;align-items:flex-end;justify-content:space-between}
+.b-count .big{font:500 46px/.9 "IBM Plex Mono",monospace;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.b-count .sub{font-size:11px;color:var(--ink1);letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.b-count .rt{text-align:right}
+.b-count .rt b{display:block;font-size:17px;font-weight:600;letter-spacing:-.01em}
+.b-count .rt .ar{font-family:Amiri,serif;font-size:17px;letter-spacing:0;color:var(--acc);line-height:1.2}
+.b-rail{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--hair);
+  border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.b-rail div{background:var(--gr);padding:9px 4px;text-align:center}
+.b-rail .n{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink1)}
+.b-rail .t{font:500 13px/1.35 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;margin-top:3px}
+.b-rail .done .n,.b-rail .done .t{color:#55626E}
+.b-rail .nx{background:var(--sf)}
+.b-rail .nx .t{color:var(--acc)}
+.b-rail .nx .n{color:var(--acc)}
+.b-track{padding:14px 16px 12px}
+.b-track .hd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.b-track .hd span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink1)}
+.b-track .hd b{font-size:12px;font-weight:600;color:var(--ink0)}
+.b-bar{display:flex;gap:3px}
+.b-bar i{flex:1;height:6px;background:var(--hair);border-radius:3px;display:block}
+.b-bar i.y{background:var(--acc)}
+.b-ayah{margin:2px 16px 0;background:var(--sf);border-radius:10px;padding:13px 14px}
+.b-ayah .q{font-family:"Amiri Quran",Amiri,serif;font-size:22px;line-height:2;letter-spacing:0;
+  direction:rtl;text-align:right;margin:0 0 8px;color:#F4EBDA}
+.b-ayah .t{font-size:12.5px;line-height:1.5;margin:0;color:var(--ink1)}
+.b-ayah .r{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-top:8px}
+
+/* ---------- widgets ---------- */
+.wgroup{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.wlabel{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lockbg{width:264px;border-radius:26px;padding:26px 16px 18px;
+  background:linear-gradient(170deg,#20323C 0%,#0E1A20 60%,#070C0F 100%);color:#fff;flex:none}
+.lockbg .lt{text-align:center;font:600 13px/1 "IBM Plex Sans",Arial,sans-serif;opacity:.85}
+.lockbg .lc{text-align:center;font:300 58px/1.05 "IBM Plex Sans",Arial,sans-serif;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;margin:2px 0 16px}
+/* iOS accessory widgets render monochrome over vibrancy — both directions
+   converge here. That is the platform, not a design choice. */
+.acc{background:rgba(255,255,255,.16);border-radius:11px;padding:9px 11px;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);margin-bottom:9px}
+.acc .r1{display:flex;justify-content:space-between;align-items:baseline}
+.acc .r1 .n{font:600 11px/1 "IBM Plex Sans",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;opacity:.82}
+.acc .r1 .t{font:600 17px/1 "IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.acc .r2{font-size:11px;opacity:.75;margin-top:4px;font-variant-numeric:tabular-nums}
+.acc .qq{font-family:"Amiri Quran",Amiri,serif;font-size:17px;line-height:1.9;letter-spacing:0;
+  direction:rtl;text-align:right;margin:0}
+.hw{width:132px;height:132px;flex:none;border-radius:22px;padding:13px;display:flex;
+  flex-direction:column;justify-content:space-between;overflow:hidden}
+.hw.med{width:264px;height:132px}
+.dir-a .hw{background:#15564A;color:#F2F1EA;font-family:Newsreader,Georgia,serif}
+.dir-a .hw.ayah{background:#EDEEE9;color:#171C1A;border:1px solid #CFD3CE}
+.dir-b .hw{background:#0B0F14;color:#E9EEF3;font-family:"IBM Plex Sans",Arial,sans-serif;
+  border:1px solid #222C36}
+.hw .wn{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.72}
+.hw .wt{font-size:34px;font-weight:600;line-height:.95;font-variant-numeric:tabular-nums;letter-spacing:-.025em}
+.dir-b .hw .wt{font-family:"IBM Plex Mono",monospace;font-weight:500;color:#E8B54A}
+.hw .wm{font-size:11px;opacity:.78;font-variant-numeric:tabular-nums}
+.hw .war{font-family:Amiri,serif;font-size:16px;letter-spacing:0;opacity:.8}
+.hw-rows{display:grid;gap:3px}
+.hw-rows div{display:flex;justify-content:space-between;font-size:11px;font-variant-numeric:tabular-nums;opacity:.8}
+.hw-rows div.on{opacity:1;font-weight:600}
+.dir-b .hw-rows div.on{color:#E8B54A}
+.hw.ayah .q{font-family:"Amiri Quran",Amiri,serif;font-size:19px;line-height:1.95;letter-spacing:0;
+  direction:rtl;text-align:right;margin:0}
+
+/* ---------- shield ---------- */
+.shield{height:540px;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;padding:0 26px;gap:0}
+.dir-a .shield{background:#15564A;color:#F2F1EA;font-family:Newsreader,Georgia,serif}
+.dir-b .shield{background:#0B0F14;color:#E9EEF3;font-family:"IBM Plex Sans",Arial,sans-serif}
+.shield .glyph{width:54px;height:54px;margin-bottom:20px}
+.shield .ttl{font-size:22px;font-weight:600;letter-spacing:-.015em;margin:0 0 9px;line-height:1.25}
+.shield .sub{font-size:13.5px;line-height:1.5;margin:0 0 26px;opacity:.8;max-width:27ch}
+.dir-b .shield .ttl{color:#E8B54A}
+.btn{display:block;width:100%;max-width:206px;padding:12px;border-radius:8px;
+  font-size:14px;font-weight:600;text-align:center;border:none;margin-bottom:9px}
+.dir-a .btn.p{background:#F2F1EA;color:#15564A}
+.dir-a .btn.s{background:transparent;color:#F2F1EA;border:1px solid rgba(242,241,234,.34)}
+.dir-b .btn.p{background:#E8B54A;color:#0B0F14}
+.dir-b .btn.s{background:transparent;color:#8A98A6;border:1px solid #222C36}
+.shield .fine{font-size:10.5px;opacity:.55;margin-top:14px;max-width:30ch;line-height:1.45}
+.confirm{height:540px;display:flex;flex-direction:column;justify-content:center;padding:0 24px}
+.dir-a .confirm{background:#EDEEE9;color:#171C1A;font-family:Newsreader,Georgia,serif}
+.dir-b .confirm{background:#0B0F14;color:#E9EEF3;font-family:"IBM Plex Sans",Arial,sans-serif}
+.confirm .ck{font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.dir-a .confirm .ck{color:#15564A} .dir-b .confirm .ck{color:#E8B54A}
+.confirm h4{font-size:23px;font-weight:600;margin:0 0 10px;letter-spacing:-.015em;line-height:1.3}
+.confirm p{font-size:13.5px;line-height:1.55;margin:0 0 22px}
+.dir-a .confirm p{color:#5E6866} .dir-b .confirm p{color:#8A98A6}
+.confirm .strip{display:flex;gap:6px;margin-bottom:10px}
+.confirm .strip i{flex:1;height:6px;border-radius:3px;display:block}
+.dir-a .confirm .strip i{background:#CFD3CE} .dir-a .confirm .strip i.y{background:#15564A}
+.dir-b .confirm .strip i{background:#222C36} .dir-b .confirm .strip i.y{background:#E8B54A}
+.confirm .note{font-size:12px}
+.dir-a .confirm .note{color:#5E6866} .dir-b .confirm .note{color:#8A98A6}
+
+/* ---------- onboarding ---------- */
+.onb{height:540px;display:flex;flex-direction:column;padding:0}
+.dir-a .onb{background:#EDEEE9;color:#171C1A;font-family:Newsreader,Georgia,serif}
+.dir-b .onb{background:#0B0F14;color:#E9EEF3;font-family:"IBM Plex Sans",Arial,sans-serif}
+.onb .skip{display:flex;justify-content:flex-end;padding:12px 17px 0;font-size:12.5px}
+.dir-a .onb .skip{color:#5E6866} .dir-b .onb .skip{color:#8A98A6}
+.onb .body{flex:1;padding:0 20px;display:flex;flex-direction:column;justify-content:center}
+.onb h4{font-size:25px;font-weight:600;letter-spacing:-.02em;line-height:1.22;margin:0 0 11px}
+.onb p{font-size:13.5px;line-height:1.55;margin:0 0 20px}
+.dir-a .onb p{color:#5E6866} .dir-b .onb p{color:#8A98A6}
+.onb .foot{padding:0 20px 22px;display:flex;flex-direction:column;align-items:center}
+.onb .dots{display:flex;gap:5px;margin-top:13px}
+.onb .dots i{width:5px;height:5px;border-radius:50%;display:block}
+.dir-a .onb .dots i{background:#CFD3CE} .dir-a .onb .dots i.on{background:#15564A}
+.dir-b .onb .dots i{background:#222C36} .dir-b .onb .dots i.on{background:#E8B54A}
+.inst{display:flex;flex-direction:column;gap:1px;max-height:296px;overflow-y:auto}
+.inst button{display:flex;justify-content:space-between;align-items:center;gap:8px;
+  padding:11px 13px;font-size:13.5px;text-align:left;border:none;width:100%;font-family:inherit}
+.dir-a .inst button{background:#FFFFFF;color:#171C1A;border-bottom:1px solid #CFD3CE}
+.dir-a .inst button.sel{background:#15564A;color:#F2F1EA}
+.dir-b .inst button{background:#141C24;color:#E9EEF3;border-bottom:1px solid #0B0F14}
+.dir-b .inst button.sel{background:#E8B54A;color:#0B0F14;font-weight:600}
+.inst .ar{font-family:Amiri,serif;font-size:15px;letter-spacing:0;opacity:.72}
+.inst button.sel .ar{opacity:.9}
+.rtl-note{direction:rtl;text-align:right}
+
+/* ---------- token sheets ---------- */
+.tok{background:var(--panel);border:1px solid var(--rule);padding:22px}
+.tok h3{font-size:16px;font-weight:600;margin:0 0 3px}
+.tok .sc{font-size:12.5px;color:var(--muted);margin:0 0 16px}
+.sw{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.sw span{font:500 10px/1 "IBM Plex Mono",monospace;padding:22px 7px 6px;border-radius:3px;
+  min-width:70px;border:1px solid var(--rule)}
+.tok dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0;font-size:12.5px}
+.tok dt{color:var(--muted)} .tok dd{margin:0}
+.tok dd code{font:400 12px/1.5 "IBM Plex Mono",monospace}
+footer.end{padding:44px 0 0}
+footer.end h2{font-size:20px;font-weight:600;margin-bottom:12px}
+footer.end ul{margin:0;padding-left:19px;color:var(--muted);max-width:68ch}
+footer.end li{margin-bottom:7px}
+footer.end b{color:var(--ink);font-weight:600}
+.flag{background:var(--chip);border-left:3px solid var(--accent);padding:13px 15px;margin:26px 0 0;
+  font-size:13px;max-width:70ch;line-height:1.55}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Rakat · design system · step B</div>
+  <h1>Two directions, four surfaces</h1>
+  <p>Same content, same constraints, two visual arguments. Cherry-pick per surface if you want —
+     the winner gets frozen into <code>DESIGN.md</code> and generates the SwiftUI and Kotlin colours
+     from one token set. Times shown are DITIB/Diyanet with Hanafi Asr for Berlin, 11 Sep 2026.</p>
+  <div class="rules">
+    <span>No faces, figures or prophets</span><span>Calligraphy · geometry only</span>
+    <span>RTL-aware</span><span>Max 4 type sizes / 2 weights</span><span>8pt grid</span>
+    <span>Legible at 1080×1920</span><span>No purple, no Inter</span>
+  </div>
+</header>
+
+<section class="surface">
+  <div class="eyebrow">Surface 1 of 4</div>
+  <h2>Home</h2>
+  <p class="job">Must answer “what’s next and when” before the phone is fully out of the pocket,
+     show the calculation method (it is the reason people switch), carry today’s tracker without
+     reading as debt, and hold the daily ayah.</p>
+  <div class="pair">
+
+    <div class="col">
+      <div class="name"><i class="dot a"></i><b>A · Timetable</b><i>Newsreader + Amiri Quran</i></div>
+      <p class="why">The printed mosque timetable, done properly. Ruled rows, tabular figures, a solid
+         green field for the next prayer, and a red “now” hairline sitting physically between two rows.
+         Light-first. Reads as a document you trust, not an app that wants something.</p>
+      <div class="stage"><div class="dir-a"><div class="phone"><div class="screen">
+        <div class="statusbar"><span>14:34</span><span>■ ▮ ⬤</span></div>
+        <div class="a-meta"><span class="method">DITIB · Hanafi</span><span class="hij">29 Rabīʿ al-Awwal 1448</span></div>
+        <div class="a-now">
+          <div><div class="lbl">Next</div><div class="nm">Asr</div><div class="tm">17:15</div></div>
+          <div style="text-align:right"><div class="ar">العصر</div><div class="in">in 2h 41m</div></div>
+        </div>
+        <div class="a-table">
+          <div class="a-row done"><span class="nm">Fajr</span><span class="ar">الفجر</span><span class="tm">04:52</span></div>
+          <div class="a-row sun"><span class="nm">Sunrise</span><span class="ar">الشروق</span><span class="tm">06:44</span></div>
+          <div class="a-row done"><span class="nm">Dhuhr</span><span class="ar">الظهر</span><span class="tm">13:10</span></div>
+          <div class="a-nowline"><span class="tg">14:34</span><span class="ln"></span></div>
+          <div class="a-row next"><span class="nm">Asr</span><span class="ar">العصر</span><span class="tm">17:15</span></div>
+          <div class="a-row"><span class="nm">Maghrib</span><span class="ar">المغرب</span><span class="tm">19:29</span></div>
+          <div class="a-row"><span class="nm">Isha</span><span class="ar">العشاء</span><span class="tm">21:11</span></div>
+        </div>
+        <div class="a-track">
+          <span class="a-marks"><i class="y"></i><i class="y"></i><i></i><i></i><i></i></span>
+          <span class="cons">14 days consistent</span>
+        </div>
+        <div class="a-ayah">
+          <p class="q">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+          <p class="t">Gewiss, mit der Erschwernis ist Erleichterung.</p>
+          <div class="r">Ash-Sharh 94:6 · Bubenheim &amp; Elyas</div>
+        </div>
+      </div></div>
+      <div class="cap">The method sits in the top-left where it is read first, and never moves.
+        The hairline is the only warm colour on the screen.</div></div></div>
+    </div>
+
+    <div class="col">
+      <div class="name"><i class="dot b"></i><b>B · Horizon</b><i>IBM Plex + Amiri Quran</i></div>
+      <p class="why">The sun’s arc is the hero, because the sun’s position is literally what the five
+         times are. Dark-first, one amber accent, a mono countdown that is readable across a room.
+         Reads as an instrument.</p>
+      <div class="stage"><div class="dir-b"><div class="phone"><div class="screen">
+        <div class="statusbar"><span>14:34</span><span>■ ▮ ⬤</span></div>
+        <div class="b-meta"><span class="method">DITIB · Hanafi</span><span class="hij">29 Rabīʿ al-Awwal 1448</span></div>
+        <div class="b-arc">
+          <svg viewBox="0 0 300 92" width="100%" height="82" aria-label="Sun path from Fajr to Isha, now just past Dhuhr">
+            <line x1="12" y1="64" x2="288" y2="64" stroke="#222C36" stroke-width="1"/>
+            <path d="M 12 77 L 43.5 64" stroke="#4A9DD8" stroke-width="1.4" stroke-dasharray="2 3" fill="none"/>
+            <path d="M 259.3 64 L 288 77" stroke="#4A9DD8" stroke-width="1.4" stroke-dasharray="2 3" fill="none"/>
+            <path d="M 43.5 64 Q 153.6 -24 259.3 64" stroke="#3A4854" stroke-width="1.4" fill="none"/>
+            <path d="M 43.5 64 Q 116 -8.9 176 22" stroke="#E8B54A" stroke-width="1.8" fill="none"/>
+            <circle cx="176" cy="22" r="5.5" fill="#E8B54A"/>
+            <g fill="#8A98A6" font-family="IBM Plex Mono, monospace" font-size="8.5">
+              <text x="12" y="80" text-anchor="start">04:52</text>
+              <text x="152.5" y="80" text-anchor="middle">13:10</text>
+              <text x="288" y="80" text-anchor="end">21:11</text>
+            </g>
+            <g fill="#55626E" font-family="IBM Plex Sans, sans-serif" font-size="7.5" letter-spacing="1">
+              <text x="12" y="90" text-anchor="start">FAJR</text>
+              <text x="152.5" y="90" text-anchor="middle">DHUHR</text>
+              <text x="288" y="90" text-anchor="end">ISHA</text>
+            </g>
+          </svg>
+        </div>
+        <div class="b-count">
+          <div><div class="big">2:41</div><div class="sub">until Asr</div></div>
+          <div class="rt"><b>17:15</b><span class="ar">العصر</span></div>
+        </div>
+        <div class="b-rail">
+          <div class="done"><div class="n">Fajr</div><div class="t">04:52</div></div>
+          <div class="done"><div class="n">Dhuhr</div><div class="t">13:10</div></div>
+          <div class="nx"><div class="n">Asr</div><div class="t">17:15</div></div>
+          <div><div class="n">Magh</div><div class="t">19:29</div></div>
+          <div><div class="n">Isha</div><div class="t">21:11</div></div>
+        </div>
+        <div class="b-track">
+          <div class="hd"><span>Today</span><b>14 days consistent</b></div>
+          <div class="b-bar"><i class="y"></i><i class="y"></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="b-ayah">
+          <p class="q">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+          <p class="t">Gewiss, mit der Erschwernis ist Erleichterung.</p>
+          <div class="r">Ash-Sharh 94:6 · Bubenheim &amp; Elyas</div>
+        </div>
+      </div></div>
+      <div class="cap">The arc doubles as the qibla/Hijri surface later and is the one asset that
+        survives TikTok re-encode at thumbnail size.</div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="surface">
+  <div class="eyebrow">Surface 2 of 4</div>
+  <h2>Widgets</h2>
+  <p class="job">The acquisition hook candidate and the top-grossing form factor in the category.
+     “The widget doesn’t even work” is the #1 complaint, so these must refresh — that is engineering,
+     not design. What design owes them: legible at 2cm, and correct on a Lock Screen that renders
+     accessory widgets monochrome over vibrancy.</p>
+  <div class="pair">
+
+    <div class="col">
+      <div class="name"><i class="dot a"></i><b>A · Timetable</b></div>
+      <p class="why">Home widgets quote the green field and the ruled rows straight from the app.
+         Tabular figures at every size.</p>
+      <div class="dir-a">
+        <div class="wgroup">
+          <div class="wlabel">Lock Screen · accessoryRectangular</div>
+          <div class="lockbg">
+            <div class="lt">Friday, 11 September</div><div class="lc">14:34</div>
+            <div class="acc"><div class="r1"><span class="n">Asr</span><span class="t">17:15</span></div>
+              <div class="r2">in 2h 41m · DITIB</div></div>
+            <div class="acc"><p class="qq">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p></div>
+          </div>
+          <div class="wlabel" style="margin-top:8px">Home Screen · small + medium</div>
+          <div class="stage">
+            <div class="hw">
+              <div><div class="wn">Next · Asr</div><div class="war">العصر</div></div>
+              <div><div class="wt">17:15</div><div class="wm">in 2h 41m</div></div>
+            </div>
+            <div class="hw ayah" style="justify-content:center">
+              <p class="q">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+              <div class="wm" style="margin-top:8px">94:6</div>
+            </div>
+          </div>
+          <div class="hw med">
+            <div class="wn">Today · DITIB · Hanafi</div>
+            <div class="hw-rows">
+              <div><span>Fajr</span><span>04:52</span></div>
+              <div><span>Dhuhr</span><span>13:10</span></div>
+              <div class="on"><span>Asr</span><span>17:15</span></div>
+              <div><span>Maghrib</span><span>19:29</span></div>
+              <div><span>Isha</span><span>21:11</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="name"><i class="dot b"></i><b>B · Horizon</b></div>
+      <p class="why">The arc shrinks to a sparkline and still says “where in the day am I”. Amber on
+         near-black survives the re-encode better than anything else on this page.</p>
+      <div class="dir-b">
+        <div class="wgroup">
+          <div class="wlabel">Lock Screen · accessoryRectangular</div>
+          <div class="lockbg">
+            <div class="lt">Friday, 11 September</div><div class="lc">14:34</div>
+            <div class="acc"><div class="r1"><span class="n">Asr</span><span class="t">2:41</span></div>
+              <div class="r2">17:15 · DITIB</div></div>
+            <div class="acc"><p class="qq">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p></div>
+          </div>
+          <div class="wlabel" style="margin-top:8px">Home Screen · small + medium</div>
+          <div class="stage">
+            <div class="hw">
+              <div class="wn">Until Asr</div>
+              <svg viewBox="0 0 106 34" width="100%" height="30" aria-hidden="true">
+                <line x1="3" y1="26" x2="103" y2="26" stroke="#222C36" stroke-width="1"/>
+                <path d="M 14 26 Q 53 -6 92 26" stroke="#3A4854" stroke-width="1.3" fill="none"/>
+                <path d="M 14 26 Q 40 -2.5 62 8" stroke="#E8B54A" stroke-width="1.6" fill="none"/>
+                <circle cx="62" cy="8" r="4" fill="#E8B54A"/>
+              </svg>
+              <div><div class="wt">2:41</div><div class="wm">17:15 · العصر</div></div>
+            </div>
+            <div class="hw ayah" style="justify-content:center">
+              <p class="q" style="color:#F4EBDA">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+              <div class="wm" style="margin-top:8px;color:#E8B54A">94:6</div>
+            </div>
+          </div>
+          <div class="hw med">
+            <div class="wn">Today · DITIB · Hanafi</div>
+            <div class="hw-rows">
+              <div><span>Fajr</span><span>04:52</span></div>
+              <div><span>Dhuhr</span><span>13:10</span></div>
+              <div class="on"><span>Asr</span><span>17:15</span></div>
+              <div><span>Maghrib</span><span>19:29</span></div>
+              <div><span>Isha</span><span>21:11</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="flag"><b>Both directions converge on the Lock Screen on purpose.</b>
+    iOS renders <code>accessoryRectangular</code> monochrome over vibrancy — it takes the wallpaper’s
+    tint, not ours. So the Lock Screen widget is a <i>typography and hierarchy</i> decision only, and
+    the difference between A and B there is which number is biggest: A leads with the clock time,
+    B leads with the countdown.</div>
+</section>
+
+<section class="surface">
+  <div class="eyebrow">Surface 3 of 4</div>
+  <h2>The shield, and “I prayed”</h2>
+  <p class="job">This is the acquisition-hook candidate, behind a feature flag. It is also the most
+     constrained screen in the app: a ManagedSettings shield may contain a static title, subtitle,
+     icon and two buttons. Nothing else. No countdown, no live data, no deep link. “I prayed” sets an
+     App-Group flag that the app clears on next open — which is why the second screen exists.</p>
+  <div class="pair">
+
+    <div class="col">
+      <div class="name"><i class="dot a"></i><b>A · Timetable</b></div>
+      <p class="why">The green field fills the screen. It reads as a closed shutter, not an alarm.</p>
+      <div class="stage"><div class="dir-a">
+        <div class="phone"><div class="screen"><div class="shield">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M24 5 L40 20 L40 43 L8 43 L8 20 Z" fill="none" stroke="#F2F1EA" stroke-width="1.6"/>
+            <path d="M24 43 L24 27 a6 6 0 0 1 12 0 L36 43" fill="none" stroke="#F2F1EA" stroke-width="1.6" opacity=".55"/>
+            <path d="M12 43 L12 27 a6 6 0 0 1 12 0 L24 43" fill="none" stroke="#F2F1EA" stroke-width="1.6" opacity=".55"/>
+          </svg>
+          <h3 class="ttl">Maghrib has begun</h3>
+          <p class="sub">Instagram is paused. It opens again when you mark the prayer.</p>
+          <button class="btn p">I prayed</button>
+          <button class="btn s">Not now</button>
+          <p class="fine">19:29 · DITIB · Hanafi. “Not now” lets the app through and leaves today unmarked.</p>
+        </div></div></div>
+        <div class="cap">Two arches, no figure. The same glyph becomes the app icon.</div>
+      </div>
+      <div class="dir-a"><div class="phone"><div class="screen"><div class="confirm">
+        <div class="ck">Maghrib · 19:34</div>
+        <h4>Marked. Four of five today.</h4>
+        <p>Instagram is open again. Isha is at 21:11.</p>
+        <div class="strip"><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i></div>
+        <div class="note">14 days consistent</div>
+      </div></div></div>
+      <div class="cap">Counts up, never down. No “you missed”, no red, no streak-loss language.</div></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="name"><i class="dot b"></i><b>B · Horizon</b></div>
+      <p class="why">Near-black with the title in amber. Higher contrast, and it does not glare at
+         Maghrib and Isha when the phone is the brightest thing in the room.</p>
+      <div class="stage"><div class="dir-b">
+        <div class="phone"><div class="screen"><div class="shield">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true">
+            <line x1="4" y1="34" x2="44" y2="34" stroke="#3A4854" stroke-width="1.6"/>
+            <path d="M10 34 Q24 6 38 34" fill="none" stroke="#3A4854" stroke-width="1.6"/>
+            <path d="M10 34 Q19 15 30 16.5" fill="none" stroke="#E8B54A" stroke-width="2"/>
+            <circle cx="30" cy="16.5" r="4.4" fill="#E8B54A"/>
+          </svg>
+          <h3 class="ttl">Maghrib has begun</h3>
+          <p class="sub">Instagram is paused. It opens again when you mark the prayer.</p>
+          <button class="btn p">I prayed</button>
+          <button class="btn s">Not now</button>
+          <p class="fine">19:29 · DITIB · Hanafi. “Not now” lets the app through and leaves today unmarked.</p>
+        </div></div></div>
+        <div class="cap">The sun below the arc’s end — the one moment the arc is literal.</div>
+      </div>
+      <div class="dir-b"><div class="phone"><div class="screen"><div class="confirm">
+        <div class="ck">Maghrib · 19:34</div>
+        <h4>Marked. Four of five today.</h4>
+        <p>Instagram is open again. Isha is at 21:11.</p>
+        <div class="strip"><i class="y"></i><i class="y"></i><i class="y"></i><i class="y"></i><i></i></div>
+        <div class="note">14 days consistent</div>
+      </div></div></div>
+      <div class="cap">Identical copy in both. The words are the product decision, not the palette.</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="surface">
+  <div class="eyebrow">Surface 4 of 4</div>
+  <h2>Onboarding</h2>
+  <p class="job">Ten screens maximum, every step skippable, no account, no paywall, no location nag.
+     Pillars and Salah Focus both shipped a 30-screen quiz into a hard paywall and it is the single
+     biggest 1★ generator in the category. Screen 2 is the one that earns the install: picking your
+     institution <i>by name</i> is the thing nobody else ships.</p>
+  <div class="pair">
+
+    <div class="col">
+      <div class="name"><i class="dot a"></i><b>A · Timetable</b></div>
+      <p class="why">Reads like the first page of an almanac. The parameters are printed next to each
+         institution because the people who care about this know their own angles.</p>
+      <div class="stage"><div class="dir-a">
+        <div class="phone"><div class="screen"><div class="onb">
+          <div class="skip">Skip</div>
+          <div class="body">
+            <h4>Prayer times your mosque would recognise.</h4>
+            <p>Pick the institution you follow. Adjust any prayer by the minute. We never change your
+               settings in an update.</p>
+          </div>
+          <div class="foot"><button class="btn p" style="max-width:100%">Choose my institution</button>
+            <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div></div></div>
+        <div class="cap">Screen 1 of 6. No account, no email, no paywall in the flow.</div>
+      </div>
+      <div class="dir-a"><div class="phone"><div class="screen"><div class="onb">
+        <div class="skip">Skip</div>
+        <div class="body" style="justify-content:flex-start;padding-top:6px">
+          <h4 style="font-size:20px">Which times do you follow?</h4>
+          <div class="inst">
+            <button class="sel"><span>DITIB · Diyanet</span><span class="ar">18° / 17° + offsets</span></button>
+            <button><span>IGMG</span><span class="ar">18° / 17°</span></button>
+            <button><span>ISNA</span><span class="ar">15° / 15°</span></button>
+            <button><span>Muslim World League</span><span class="ar">18° / 17°</span></button>
+            <button><span>Umm al-Qura</span><span class="ar">18.5° / 90 min</span></button>
+            <button><span>Egyptian Authority</span><span class="ar">19.5° / 17.5°</span></button>
+            <button><span>Univ. of Karachi</span><span class="ar">18° / 18°</span></button>
+            <button><span>Shia Ithna-Ashari</span><span class="ar">16° / 14°</span></button>
+          </div>
+        </div>
+        <div class="foot"><div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+      </div></div></div>
+      <div class="cap">Screen 2. Asr madhab and per-prayer offsets are the next screen, both skippable.</div></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="name"><i class="dot b"></i><b>B · Horizon</b></div>
+      <p class="why">Same copy, same order, same skip affordance. The arc appears on screen 1 so the
+         hero asset is established before the app is even set up.</p>
+      <div class="stage"><div class="dir-b">
+        <div class="phone"><div class="screen"><div class="onb">
+          <div class="skip">Skip</div>
+          <div class="body">
+            <svg viewBox="0 0 220 70" width="100%" height="66" aria-hidden="true" style="margin-bottom:20px">
+              <line x1="6" y1="52" x2="214" y2="52" stroke="#222C36" stroke-width="1"/>
+              <path d="M28 52 Q110 -8 192 52" fill="none" stroke="#3A4854" stroke-width="1.4"/>
+              <path d="M28 52 Q72 -1 110 11" fill="none" stroke="#E8B54A" stroke-width="1.8"/>
+              <circle cx="110" cy="11" r="5" fill="#E8B54A"/>
+            </svg>
+            <h4>Prayer times your mosque would recognise.</h4>
+            <p>Pick the institution you follow. Adjust any prayer by the minute. We never change your
+               settings in an update.</p>
+          </div>
+          <div class="foot"><button class="btn p" style="max-width:100%">Choose my institution</button>
+            <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div></div></div>
+        <div class="cap">Screen 1 of 6. The arc is the only illustration in the whole flow.</div>
+      </div>
+      <div class="dir-b"><div class="phone"><div class="screen"><div class="onb">
+        <div class="skip">Skip</div>
+        <div class="body" style="justify-content:flex-start;padding-top:6px">
+          <h4 style="font-size:20px">Which times do you follow?</h4>
+          <div class="inst">
+            <button class="sel"><span>DITIB · Diyanet</span><span class="ar">18° / 17° + offsets</span></button>
+            <button><span>IGMG</span><span class="ar">18° / 17°</span></button>
+            <button><span>ISNA</span><span class="ar">15° / 15°</span></button>
+            <button><span>Muslim World League</span><span class="ar">18° / 17°</span></button>
+            <button><span>Umm al-Qura</span><span class="ar">18.5° / 90 min</span></button>
+            <button><span>Egyptian Authority</span><span class="ar">19.5° / 17.5°</span></button>
+            <button><span>Univ. of Karachi</span><span class="ar">18° / 18°</span></button>
+            <button><span>Shia Ithna-Ashari</span><span class="ar">16° / 14°</span></button>
+          </div>
+        </div>
+        <div class="foot"><div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+      </div></div></div>
+      <div class="cap">Screen 2, identical. This screen is the product; the palette is not the argument here.</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="surface">
+  <div class="eyebrow">If you freeze it</div>
+  <h2>The two token sets</h2>
+  <p class="job">Whichever wins becomes <code>DESIGN.md</code>, and the SwiftUI widget/shield colours
+     and the Kotlin block-screen colours are generated from it. A parity test fails the build on drift —
+     the pattern is noreeels’ <code>ThemeTokenParityTest.kt</code>.</p>
+  <div class="pair">
+    <div class="tok">
+      <h3>A · Timetable</h3>
+      <p class="sc">Light-first. Dark mode inverts to ink-green, keeping the same accent.</p>
+      <div class="sw">
+        <span style="background:#EDEEE9;color:#171C1A">#EDEEE9</span>
+        <span style="background:#FFFFFF;color:#171C1A">#FFFFFF</span>
+        <span style="background:#171C1A;color:#EDEEE9">#171C1A</span>
+        <span style="background:#5E6866;color:#fff">#5E6866</span>
+        <span style="background:#15564A;color:#F2F1EA">#15564A</span>
+        <span style="background:#A6412B;color:#fff">#A6412B</span>
+      </div>
+      <dl>
+        <dt>Latin</dt><dd>Newsreader 400 / 600</dd>
+        <dt>Arabic</dt><dd>Amiri Quran (text) · Amiri (UI)</dd>
+        <dt>Sizes</dt><dd><code>11 · 15 · 20 · 44</code></dd>
+        <dt>Radius</dt><dd><code>0</code> structure · <code>8</code> buttons only</dd>
+        <dt>Accent use</dt><dd>Next-prayer field, checks, section rules</dd>
+        <dt>Warm hue</dt><dd>“Now” hairline only — never for “missed”</dd>
+        <dt>Motion</dt><dd>None on the timetable. Cross-fade on time change, 180ms.</dd>
+      </dl>
+    </div>
+    <div class="tok">
+      <h3>B · Horizon</h3>
+      <p class="sc">Dark-first. Light mode keeps amber but drops it to #9A6F14 for contrast on bone.</p>
+      <div class="sw">
+        <span style="background:#0B0F14;color:#E9EEF3">#0B0F14</span>
+        <span style="background:#141C24;color:#E9EEF3">#141C24</span>
+        <span style="background:#E9EEF3;color:#0B0F14">#E9EEF3</span>
+        <span style="background:#8A98A6;color:#0B0F14">#8A98A6</span>
+        <span style="background:#E8B54A;color:#0B0F14">#E8B54A</span>
+        <span style="background:#4A9DD8;color:#0B0F14">#4A9DD8</span>
+      </div>
+      <dl>
+        <dt>Latin</dt><dd>IBM Plex Sans 400 / 600 · Plex Mono for digits</dd>
+        <dt>Arabic</dt><dd>Amiri Quran (text) · Amiri (UI)</dd>
+        <dt>Sizes</dt><dd><code>10 · 13 · 17 · 46</code></dd>
+        <dt>Radius</dt><dd><code>10</code> surfaces · <code>8</code> buttons</dd>
+        <dt>Accent use</dt><dd>The sun, the next prayer, the marked state</dd>
+        <dt>Cool hue</dt><dd>Below-horizon arc only (pre-Fajr, post-Maghrib)</dd>
+        <dt>Motion</dt><dd>Sun advances along the arc on open, 600ms ease-out, once.</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer class="end">
+  <h2>What I need from you</h2>
+  <ul>
+    <li><b>Pick per surface, not overall.</b> They are built from one token set, so “A’s home with B’s
+        shield” is a real answer and costs nothing.</li>
+    <li><b>The Lock Screen widget is not a choice</b> — iOS renders it monochrome. The only decision
+        there is which number is largest: clock time (A) or countdown (B).</li>
+    <li><b>Arabic on this page is unverified.</b> Every Arabic string and the Hijri date are listed in
+        <code>REVIEW.md</code> for the Muslim reviewer. The German line is Bubenheim &amp; Elyas and must
+        be checked byte-for-byte against QuranEnc <code>deu_frankbubenheima</code> 1.1.0 before it ships.</li>
+    <li><b>Prayer times shown are illustrative</b> Berlin values, not computed by adhan-js yet.</li>
+  </ul>
+  <div class="flag"><b>TikTok legibility.</b> Both directions clear the 1080×1920 text box
+    (x 130–950, y 230–1440): the largest figure on each home screen is the countdown, which lands at
+    roughly 18% of frame height when filmed. B has more headroom after re-encode — amber on #0B0F14 is
+    a far bigger contrast step than green on bone. If the lock is the hook the marketing test picks,
+    that matters; if the widget is the hook, they are level.</div>
+</footer>
+</div>

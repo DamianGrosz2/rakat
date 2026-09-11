@@ -1,0 +1,355 @@
+<title>Rakat Component Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Archivo:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap">
+<style>
+/* Page chrome follows the viewer's theme. The SPECIMENS below are pinned to an
+   appearance on purpose — the whole point is seeing both at once. */
+:root{--pg:#F3F3F0;--pp:#FFF;--pi:#191D1B;--pm:#5E6866;--pr:#DCDDD7;--pc:#E7E8E3;--pa:#15564A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --pg:#0F1211;--pp:#171B1A;--pi:#E9ECE9;--pm:#96A09D;--pr:#282D2B;--pc:#212624;--pa:#4E9E8A}}
+:root[data-theme="dark"]{--pg:#0F1211;--pp:#171B1A;--pi:#E9ECE9;--pm:#96A09D;--pr:#282D2B;--pc:#212624;--pa:#4E9E8A}
+*{box-sizing:border-box}
+body{background:var(--pg);color:var(--pi);font:400 15px/1.55 Archivo,system-ui,sans-serif;padding:0 0 80px}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px}
+h1,h2,h3{text-wrap:balance;margin:0}
+.eyebrow{font:600 11px/1 Archivo,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--pm)}
+header.top{padding:52px 0 30px;border-bottom:1px solid var(--pr)}
+header.top h1{font:600 34px/1.1 Archivo,sans-serif;letter-spacing:-.02em;margin:10px 0}
+header.top p{margin:0;max-width:64ch;color:var(--pm)}
+header.top code,.wrap code{font:400 .92em/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;
+  background:var(--pc);padding:1px 5px;border-radius:3px}
+section{padding:40px 0;border-bottom:1px solid var(--pr)}
+section>h2{font:600 21px/1.2 Archivo,sans-serif;letter-spacing:-.01em;margin:8px 0 6px}
+section>.lede{color:var(--pm);max-width:66ch;margin:0 0 26px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.sub{font:600 11px/1 Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--pm);margin-bottom:10px}
+
+/* ---- specimen surfaces, pinned ---- */
+.sp{--ground:#EDEEE9;--surface:#FFFFFF;--ink:#171C1A;--inkMuted:#5E6866;
+    --hairline:#CFD3CE;--accent:#15564A;--accentInk:#F2F1EA;--now:#A6412B;
+    background:var(--ground);color:var(--ink);font-family:Newsreader,Georgia,serif;
+    border:1px solid var(--pr);padding:18px}
+.sp.night{--ground:#101413;--surface:#181D1C;--ink:#E8EBE8;--inkMuted:#929C99;
+    --hairline:#2A302E;--accent:#4E9E8A;--accentInk:#0B100F;--now:#E07B5F}
+
+/* swatches */
+.sw{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.sw figure{margin:0;border:1px solid var(--hairline)}
+.sw .chip{height:46px}
+.sw figcaption{padding:6px 8px;background:var(--surface);color:var(--ink);
+  font:400 11px/1.35 Archivo,sans-serif}
+.sw figcaption b{display:block;font-weight:600;font-size:11.5px}
+.sw figcaption span{color:var(--inkMuted);font-family:ui-monospace,Menlo,monospace;letter-spacing:-.02em}
+
+/* type specimen */
+.ty{display:grid;gap:14px}
+.ty .row{display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:baseline;
+  border-bottom:1px solid var(--hairline);padding-bottom:12px}
+.ty .k{font:400 11px/1.4 Archivo,sans-serif;color:var(--inkMuted)}
+.ty .k b{display:block;color:var(--ink);font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.t-label{font:600 11px/1 Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.t-body{font:400 15px/1.5 Newsreader,Georgia,serif}
+.t-title{font:600 20px/1.25 Newsreader,Georgia,serif;letter-spacing:-.01em}
+.t-display{font:600 44px/.95 Newsreader,Georgia,serif;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.ar-ui{font:400 15px/1.6 Amiri,serif;letter-spacing:0}
+.ar-display{font:400 21px/1.4 Amiri,serif;letter-spacing:0}
+.ar-quran{font:400 23px/2 "Amiri Quran",Amiri,serif;letter-spacing:0;direction:rtl;text-align:right}
+
+/* right / wrong */
+.rw{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.rw>div{border:1px solid var(--hairline);padding:12px;background:var(--surface)}
+.rw .tag{font:600 10px/1 Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;display:block}
+.rw .ok .tag{color:var(--accent)} .rw .no .tag{color:var(--now)}
+.rw p{margin:0;font:400 22px/2 "Amiri Quran",Amiri,serif;direction:rtl;text-align:right}
+.rw .no p{letter-spacing:.08em}
+.rw .note{font:400 11.5px/1.45 Archivo,sans-serif;color:var(--inkMuted);margin-top:10px;display:block}
+
+/* components */
+.comp{display:flex;flex-direction:column;gap:22px}
+.pc{width:100%;max-width:300px}
+.nextfield{background:var(--accent);color:var(--accentInk);padding:15px 16px 16px;
+  display:flex;justify-content:space-between;align-items:flex-end}
+.nextfield .lbl{font:600 10px/1 Archivo,sans-serif;letter-spacing:.16em;text-transform:uppercase;opacity:.72}
+.nextfield .nm{font:600 20px/1.2 Newsreader,Georgia,serif;margin-top:5px}
+.nextfield .tm{font:600 44px/.92 Newsreader,Georgia,serif;letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.nextfield .ar{font:400 21px/1 Amiri,serif;letter-spacing:0;opacity:.85}
+.nextfield .in{font:400 12px/1.3 Newsreader,Georgia,serif;opacity:.78;text-align:right;margin-top:4px;
+  font-variant-numeric:tabular-nums}
+.trow{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:baseline;
+  padding:8px 16px;border-bottom:1px solid var(--hairline);font:400 15px/1.4 Newsreader,Georgia,serif}
+.trow .ar{font:400 15px/1.6 Amiri,serif;letter-spacing:0;color:var(--inkMuted)}
+.trow .tm{font-variant-numeric:tabular-nums;min-width:46px;text-align:right}
+.trow.done{color:var(--inkMuted)}
+.trow.done .tm::after{content:"✓";font-size:11px;margin-left:6px;color:var(--accent)}
+.trow.next{background:var(--surface);font-weight:600}
+.nowline{display:flex;align-items:center;gap:7px;padding:0 16px}
+.nowline .ln{flex:1;height:1px;background:var(--now)}
+.nowline .tg{font:600 10px/1 Archivo,sans-serif;color:var(--now);letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.track{padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.marks{display:flex;gap:6px}
+.marks i{width:19px;height:5px;background:var(--hairline);border-radius:2px;display:block}
+.marks i.y{background:var(--accent)}
+.track .cons{font:400 12px/1 Newsreader,Georgia,serif;color:var(--inkMuted)}
+.ayah{background:var(--surface);border-top:2px solid var(--accent);padding:13px 14px}
+.ayah .q{font:400 23px/2 "Amiri Quran",Amiri,serif;letter-spacing:0;direction:rtl;text-align:right;margin:0 0 8px}
+.ayah .t{font:400 13px/1.5 Newsreader,Georgia,serif;margin:0}
+.ayah .r{font:600 10px/1 Archivo,sans-serif;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--inkMuted);margin-top:8px}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:8px;border:none;font:600 15px/1 Archivo,sans-serif}
+.btn.p{background:var(--accent);color:var(--accentInk)}
+.btn.s{background:transparent;color:var(--ink);border:1px solid var(--hairline)}
+.instrow{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 13px;
+  background:var(--surface);border-bottom:1px solid var(--hairline);font:400 14px/1.3 Newsreader,Georgia,serif}
+.instrow.sel{background:var(--accent);color:var(--accentInk)}
+.instrow .p{font:400 12px/1 Archivo,sans-serif;opacity:.7;font-variant-numeric:tabular-nums}
+
+/* scale + radius */
+.scale{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.scale div{text-align:center}
+.scale i{display:block;background:var(--pa);border-radius:2px}
+.scale span{font:400 11px/1.6 ui-monospace,Menlo,monospace;color:var(--pm)}
+.radii{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end}
+.radii div{text-align:center}
+.radii i{display:block;width:64px;height:46px;background:var(--pa);margin-bottom:6px}
+.radii span{font:400 11px/1.5 Archivo,sans-serif;color:var(--pm)}
+.rtl{direction:rtl}
+.warn{background:var(--pc);border-left:3px solid var(--pa);padding:13px 15px;
+  font-size:13.5px;line-height:1.55;max-width:70ch;margin-top:20px}
+.warn b{font-weight:600}
+:focus-visible{outline:2px solid var(--pa);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">Rakat · frozen 2026-09-11</div>
+  <h1>Component guide</h1>
+  <p>Direction <b>A · Timetable</b>, frozen. Values here are the rendered form of
+     <code>src/theme/tokens.ts</code>, which is the source of truth — this page is the specimen,
+     <code>DESIGN.md</code> is the reasoning. Every specimen below is shown in both appearances, pinned,
+     because that is the only way to catch a token that works in one and not the other.</p>
+</header>
+
+<section>
+  <div class="eyebrow">01</div>
+  <h2>Colour</h2>
+  <p class="lede">Eight roles. Light is primary; dark is designed, not inverted. Every pair that
+     occurs in the UI is asserted at WCAG AA in <code>src/theme/parity.test.ts</code> — a change that
+     drops text below 4.5:1 fails the build.</p>
+  <div class="grid2">
+    <div><div class="sub">Light</div><div class="sp"><div class="sw">
+      <figure><div class="chip" style="background:#EDEEE9"></div><figcaption><b>ground</b><span>#EDEEE9</span></figcaption></figure>
+      <figure><div class="chip" style="background:#FFFFFF"></div><figcaption><b>surface</b><span>#FFFFFF</span></figcaption></figure>
+      <figure><div class="chip" style="background:#171C1A"></div><figcaption><b>ink</b><span>#171C1A</span></figcaption></figure>
+      <figure><div class="chip" style="background:#5E6866"></div><figcaption><b>inkMuted</b><span>#5E6866</span></figcaption></figure>
+      <figure><div class="chip" style="background:#CFD3CE"></div><figcaption><b>hairline</b><span>#CFD3CE</span></figcaption></figure>
+      <figure><div class="chip" style="background:#15564A"></div><figcaption><b>accent</b><span>#15564A</span></figcaption></figure>
+      <figure><div class="chip" style="background:#F2F1EA"></div><figcaption><b>accentInk</b><span>#F2F1EA</span></figcaption></figure>
+      <figure><div class="chip" style="background:#A6412B"></div><figcaption><b>now</b><span>#A6412B</span></figcaption></figure>
+    </div></div></div>
+    <div><div class="sub">Dark</div><div class="sp night"><div class="sw">
+      <figure><div class="chip" style="background:#101413"></div><figcaption><b>ground</b><span>#101413</span></figcaption></figure>
+      <figure><div class="chip" style="background:#181D1C"></div><figcaption><b>surface</b><span>#181D1C</span></figcaption></figure>
+      <figure><div class="chip" style="background:#E8EBE8"></div><figcaption><b>ink</b><span>#E8EBE8</span></figcaption></figure>
+      <figure><div class="chip" style="background:#929C99"></div><figcaption><b>inkMuted</b><span>#929C99</span></figcaption></figure>
+      <figure><div class="chip" style="background:#2A302E"></div><figcaption><b>hairline</b><span>#2A302E</span></figcaption></figure>
+      <figure><div class="chip" style="background:#4E9E8A"></div><figcaption><b>accent</b><span>#4E9E8A</span></figcaption></figure>
+      <figure><div class="chip" style="background:#0B100F"></div><figcaption><b>accentInk</b><span>#0B100F</span></figcaption></figure>
+      <figure><div class="chip" style="background:#E07B5F"></div><figcaption><b>now</b><span>#E07B5F</span></figcaption></figure>
+    </div></div></div>
+  </div>
+  <div class="warn"><b>Two rules that are easy to break.</b> <code>now</code> marks the present moment
+    on the timetable and nothing else — it is not an error colour and never marks a missed prayer,
+    because the tracker reads as consistency, never as debt. And the accent <i>flips role</i> between
+    appearances: dark fill with pale text on light, light fill with near-black on dark. That is why
+    <code>accentInk</code> is its own token instead of a hardcoded white.</div>
+</section>
+
+<section>
+  <div class="eyebrow">02</div>
+  <h2>Type</h2>
+  <p class="lede">Four Latin sizes, two weights — that is the whole budget, and
+     <code>parity.test.ts</code> fails if a fifth appears. Arabic has its own scale and never borrows
+     the Latin one: at a shared point size Arabic reads optically smaller, and Quranic text carries
+     full tashkeel that needs the vertical room.</p>
+  <div class="grid2">
+    <div>
+      <div class="sub">Latin · Newsreader + Archivo</div>
+      <div class="sp"><div class="ty">
+        <div class="row"><div class="k"><b>label</b>11 / Archivo 600</div><div class="t-label">DITIB · Hanafi</div></div>
+        <div class="row"><div class="k"><b>body</b>15 / Newsreader 400</div><div class="t-body">Maghrib 19:29</div></div>
+        <div class="row"><div class="k"><b>title</b>20 / Newsreader 600</div><div class="t-title">Which times do you follow?</div></div>
+        <div class="row" style="border:none"><div class="k"><b>display</b>44 / Newsreader 600<br><span style="opacity:.75">one hero figure per screen</span></div><div class="t-display">17:15</div></div>
+      </div></div>
+      <div class="warn" style="margin-top:14px"><b>The pair.</b> Newsreader carries display, text and
+        every figure, with tabular figures on so times never shift column.
+        <code>display</code> is rationed, not banned: one hero figure per screen, and only on a screen
+        with a single thing to say. Two exist — the next-prayer time and the qibla bearing. Archivo appears only at
+        11px uppercase, in buttons, and in the tab bar — a serif is weak at that size.</div>
+    </div>
+    <div>
+      <div class="sub">Arabic · Amiri + Amiri Quran</div>
+      <div class="sp"><div class="ty">
+        <div class="row"><div class="k"><b>ui</b>15 / Amiri</div><div class="ar-ui">المغرب</div></div>
+        <div class="row"><div class="k"><b>display</b>21 / Amiri</div><div class="ar-display">العصر</div></div>
+        <div class="row" style="border:none"><div class="k"><b>quran</b>23 / Amiri Quran · lh 2.0</div>
+          <div class="ar-quran">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</div></div>
+      </div></div>
+      <div class="warn" style="margin-top:14px"><b>Amiri Quran is for Quranic text only.</b> Never a
+        prayer name, never UI chrome. Prayer names and institution names use Amiri.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">03</div>
+  <h2>The Arabic rendering rules</h2>
+  <p class="lede">These are not style preferences. Breaking them produces text that is not merely
+     ugly but wrong, and a wrong letter in the mushaf is an existential bug for this product.</p>
+  <div class="sp">
+    <div class="rw">
+      <div class="ok"><span class="tag">Correct · letterSpacing 0</span>
+        <p>إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+        <span class="note">Letters join. This is the only acceptable rendering.</span></div>
+      <div class="no"><span class="tag">Broken · letterSpacing .08em</span>
+        <p>إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+        <span class="note">Tracking prises the joins apart. Asserted against in
+          <code>parity.test.ts</code>; there is no “just a little”.</span></div>
+    </div>
+  </div>
+  <div class="warn"><b>Also binding:</b> one <code>&lt;Text&gt;</code> per line — never split a line
+    into multiple Text nodes to style part of it, because shaping happens per node and the join at the
+    boundary is lost. Highlights are absolutely-positioned <code>&lt;View&gt;</code>s <i>behind</i> the
+    text, never a background on a nested Text. React Native shapes through CoreText and Minikin, which
+    handle Arabic correctly — do not import workarounds for the Flutter shaping bugs.</div>
+</section>
+
+<section>
+  <div class="eyebrow">04</div>
+  <h2>Components</h2>
+  <p class="lede">The frozen set. Structure carries no radius — rows and fields are printed, not
+     floating — so radius is spent only where a thing is genuinely tappable.</p>
+  <div class="grid2">
+    <div><div class="sub">Light</div><div class="sp"><div class="comp">
+      <div class="pc">
+        <div class="nextfield">
+          <div><div class="lbl">Next</div><div class="nm">Asr</div><div class="tm">17:15</div></div>
+          <div style="text-align:right"><div class="ar">العصر</div><div class="in">in 2h 41m</div></div>
+        </div>
+        <div class="trow done"><span>Dhuhr</span><span class="ar">الظهر</span><span class="tm">13:10</span></div>
+        <div class="nowline"><span class="tg">14:34</span><span class="ln"></span></div>
+        <div class="trow next"><span>Asr</span><span class="ar">العصر</span><span class="tm">17:15</span></div>
+        <div class="trow"><span>Maghrib</span><span class="ar">المغرب</span><span class="tm">19:29</span></div>
+        <div class="track"><span class="marks"><i class="y"></i><i class="y"></i><i></i><i></i><i></i></span>
+          <span class="cons">14 days consistent</span></div>
+        <div class="ayah"><p class="q">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+          <p class="t">Gewiss, mit der Erschwernis ist Erleichterung.</p>
+          <div class="r">Ash-Sharh 94:6</div></div>
+      </div>
+      <div class="btns"><button class="btn p">I prayed</button><button class="btn s">Not now</button></div>
+      <div class="pc">
+        <div class="instrow sel"><span>DITIB · Diyanet</span><span class="p">18° / 17° + offsets</span></div>
+        <div class="instrow"><span>IGMG</span><span class="p">18° / 17°</span></div>
+      </div>
+    </div></div></div>
+    <div><div class="sub">Dark</div><div class="sp night"><div class="comp">
+      <div class="pc">
+        <div class="nextfield">
+          <div><div class="lbl">Next</div><div class="nm">Asr</div><div class="tm">17:15</div></div>
+          <div style="text-align:right"><div class="ar">العصر</div><div class="in">in 2h 41m</div></div>
+        </div>
+        <div class="trow done"><span>Dhuhr</span><span class="ar">الظهر</span><span class="tm">13:10</span></div>
+        <div class="nowline"><span class="tg">14:34</span><span class="ln"></span></div>
+        <div class="trow next"><span>Asr</span><span class="ar">العصر</span><span class="tm">17:15</span></div>
+        <div class="trow"><span>Maghrib</span><span class="ar">المغرب</span><span class="tm">19:29</span></div>
+        <div class="track"><span class="marks"><i class="y"></i><i class="y"></i><i></i><i></i><i></i></span>
+          <span class="cons">14 days consistent</span></div>
+        <div class="ayah"><p class="q">إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا</p>
+          <p class="t">Gewiss, mit der Erschwernis ist Erleichterung.</p>
+          <div class="r">Ash-Sharh 94:6</div></div>
+      </div>
+      <div class="btns"><button class="btn p">I prayed</button><button class="btn s">Not now</button></div>
+      <div class="pc">
+        <div class="instrow sel"><span>DITIB · Diyanet</span><span class="p">18° / 17° + offsets</span></div>
+        <div class="instrow"><span>IGMG</span><span class="p">18° / 17°</span></div>
+      </div>
+    </div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">05</div>
+  <h2>Right-to-left</h2>
+  <p class="lede">Every layout is direction-aware: <code>start</code> / <code>end</code>, never
+     <code>left</code> / <code>right</code>. The timetable mirrors wholesale — Latin name to the end,
+     time to the start.</p>
+  <div class="grid2">
+    <div><div class="sub">LTR</div><div class="sp"><div class="pc">
+      <div class="trow next"><span>Asr</span><span class="ar">العصر</span><span class="tm">17:15</span></div>
+      <div class="trow"><span>Maghrib</span><span class="ar">المغرب</span><span class="tm">19:29</span></div>
+    </div></div></div>
+    <div><div class="sub">RTL</div><div class="sp"><div class="pc rtl">
+      <div class="trow next"><span>Asr</span><span class="ar">العصر</span><span class="tm">17:15</span></div>
+      <div class="trow"><span>Maghrib</span><span class="ar">المغرب</span><span class="tm">19:29</span></div>
+    </div></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">06</div>
+  <h2>Space, radius, motion</h2>
+  <div class="grid2">
+    <div>
+      <div class="sub">8pt grid · one 4pt half-step</div>
+      <div class="scale">
+        <div><i style="width:4px;height:26px"></i><span>4</span></div>
+        <div><i style="width:8px;height:34px"></i><span>8</span></div>
+        <div><i style="width:12px;height:42px"></i><span>12</span></div>
+        <div><i style="width:16px;height:52px"></i><span>16</span></div>
+        <div><i style="width:24px;height:64px"></i><span>24</span></div>
+        <div><i style="width:32px;height:78px"></i><span>32</span></div>
+      </div>
+      <p class="lede" style="margin-top:16px">Screen gutter 16. Row padding <b>12</b>, which with 15pt
+        text gives a 44pt row — Apple&rsquo;s minimum touch target. Timetable rows are tappable (tap a
+        prayer to mark it); this started at 8 and was corrected once they became interactive. The
+        next-prayer field breaks the gutter and runs full-bleed, because on a printed timetable the
+        header band does too.</p>
+    </div>
+    <div>
+      <div class="sub">Radius</div>
+      <div class="radii">
+        <div><i style="border-radius:0"></i><span>0 · structure</span></div>
+        <div><i style="border-radius:2px"></i><span>2 · marks</span></div>
+        <div><i style="border-radius:8px"></i><span>8 · buttons only</span></div>
+      </div>
+      <div class="sub" style="margin-top:26px">Motion</div>
+      <p class="lede">The timetable does not move. The only motion in the system is a 180ms ease-out
+        cross-fade when a time rolls over — short enough to read as a print refresh rather than an
+        animation. Under Reduce Motion every duration drops to 0. No shimmer, no spring, no parallax.</p>
+    </div>
+  </div>
+</section>
+
+<section style="border:none">
+  <div class="eyebrow">07</div>
+  <h2>Where these values come from</h2>
+  <p class="lede">One source, three generated outputs. The widget and both shield extensions run in
+     their own processes and cannot reach the JS bundle, so their colours are compiled in.</p>
+  <div class="sp" style="font-family:ui-monospace,Menlo,monospace;font-size:12.5px;line-height:1.9;overflow-x:auto">
+<pre style="margin:0">src/theme/tokens.ts ──npm run gen:theme──> targets/widget/Theme.swift
+                    └──────────────────────> modules/rakat-blocking/.../values/colors.xml
+                                           └ ...values-night/colors.xml</pre>
+  </div>
+  <div class="warn"><b>Never hand-edit a generated file.</b> <code>npm test</code> re-runs the
+    generator in memory and diffs against disk, so drift in either direction fails with the message
+    <code>run: npm run gen:theme</code>. Pattern lifted from noreeels’ <code>ThemeTokenParityTest.kt</code>,
+    with the expectation table replaced by the generator itself so there is no third place to update.</div>
+  <div class="warn"><b>Nothing with Arabic on it ships without the reviewer’s sign-off.</b> Every
+    Arabic string on this page — including the German translation line, which must be checked
+    byte-for-byte against QuranEnc <code>deu_frankbubenheima</code> 1.1.0 — is tracked in
+    <code>REVIEW.md</code>.</div>
+</section>
+</div>
