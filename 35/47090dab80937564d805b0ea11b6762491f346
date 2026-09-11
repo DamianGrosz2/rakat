@@ -1,0 +1,361 @@
+src/notify/athan.ts
+  s_66a50db30640bc::t_542467836d2f39 1-130
+targets/ShieldConfiguration/Shared.swift
+  s_66a50db30640bc::t_e14e803d514b63 1-1893
+src/prayer/settings.ts
+  s_66a50db30640bc::t_339c53b15ccfdf 1-49,51-95
+  s_66a50db30640bc::t_88f901e4e98b04 50
+.gitignore
+  s_66a50db30640bc::t_29abd3411bdafe 44-46
+DESIGN.md
+  s_66a50db30640bc::t_d21eeb89a04e0b 52,58-61
+  s_66a50db30640bc::t_dc7ee236a8f543 1-51,53-57,62-99,104-145,147-163
+  s_66a50db30640bc::t_7c7be269dd84f2 100-103
+  s_66a50db30640bc::t_6ccb790699c773 146
+src/theme/parity.test.ts
+  s_66a50db30640bc::t_342b22806b55d6 1-25,46-113
+  s_66a50db30640bc::t_9f1c75c52c5779 26-45
+src/app/(tabs)/settings.tsx
+  s_66a50db30640bc::t_b2d5e88417571f 2,8,11-12,14-19,24-27,29-47,49-54,58-73,75-92,102-110,115-122,127-135,137-204
+  s_66a50db30640bc::t_35471a302d73c6 5,9,20-21,100-101
+  s_66a50db30640bc::t_10f63ede8da86a 7,48,74,111-114,123-126
+  s_66a50db30640bc::t_06e3b774d8c8f4 1,3,28,136
+  s_66a50db30640bc::t_900ef05d7f5d29 4,6,10,13,22-23,55-57,93-99
+src/lock/schedule.ts
+  s_66a50db30640bc::t_ba5f6c065aad50 339,346
+  s_66a50db30640bc::t_791e921e220fc7 39
+  s_66a50db30640bc::t_a526522f8419bb 1-38,40-186,190-193,195-198,201-338,340-345,347-384
+  s_66a50db30640bc::t_a28f5cda88b27e 187-189,194,199-200
+src/widgets/state.ts
+  s_66a50db30640bc::t_ee488d64b0cd58 1-67
+src/lock/monitor.ts
+  s_66a50db30640bc::t_b6fe7927cd2fbf 1-118
+src/lock/shield.ts
+  s_66a50db30640bc::t_1c7bb9b45cd20d 1-124
+targets/ShieldAction/Shared.swift
+  s_66a50db30640bc::t_e14e803d514b63 1-1893
+src/notify/use-athan-sync.ts
+  s_66a50db30640bc::t_e645ef587ed022 1-78
+src/theme/tokens.ts
+  s_66a50db30640bc::t_dc46a42742d9b4 1-138
+src/prayer/hijri.test.ts
+  s_66a50db30640bc::t_32d139ac672a49 44-51,53-57
+  s_66a50db30640bc::t_661c726ad69611 1-43,52,58-107
+src/app/(tabs)/tracker.tsx
+  s_66a50db30640bc::t_ff1617ed0e4ba6 113-115
+  s_66a50db30640bc::t_10106682178b5e 1-2,13,19-24,45,49-51,53-62,69-70,76-93,108,111-112,137-142,148-234,248,256,262,281-340,367-368,407,416-449,452-454,466-495,500-542
+  s_66a50db30640bc::t_f16d9e325c9edf 235-247,249-255,257-261,263-280
+  s_66a50db30640bc::t_4677d3ed5df875 52
+  s_66a50db30640bc::t_963b145e134196 71-74
+  s_66a50db30640bc::t_4b4dd728b80343 6
+  s_66a50db30640bc::t_5e5e13b8eb10b3 14
+  s_66a50db30640bc::t_b2d5e88417571f 3,5,7-12,15-18,25-44,46-48,63-68,75,94-96,98-107,109-110,116-136,143-147,341-366,369,371-406,408-415,450-451,455-465,496-499,543-551
+  s_66a50db30640bc::t_06e3b774d8c8f4 4,97,370
+targets/ActivityMonitorExtension/Shared.swift
+  s_66a50db30640bc::t_e14e803d514b63 1-1893
+modules/rakat-blocking/android/src/main/res/values/colors.xml
+  s_66a50db30640bc::t_cd7793955f851c 1-13
+design.html
+  s_66a50db30640bc::t_056d27aa4a6d1e 315-319
+  s_66a50db30640bc::t_dab715219d93ee 185,188-190
+  s_66a50db30640bc::t_54b5fec07f6033 1-184,186-187,191-314,320-341,343-355
+  s_66a50db30640bc::t_6ccb790699c773 342
+src/app/onboarding.tsx
+  s_66a50db30640bc::t_b6451f71919b1d 1-5,7-9,11-41,44-92,94-122,124-159,170,174-192,198-330
+  s_66a50db30640bc::t_10f63ede8da86a 6,93,123
+  s_66a50db30640bc::t_eb88a7420c24fb 10,42-43,160-169,171-173,193-197
+src/qibla/dial.tsx
+  s_66a50db30640bc::t_134e241467fb8a 30-38
+  s_66a50db30640bc::t_429d167f8b988c 1-3,12-22,25-29,39-172
+  s_66a50db30640bc::t_8714760acbe788 4-11,23-24
+src/lock/window.test.ts
+  s_66a50db30640bc::t_94a401cabe8c05 1-158
+src/notify/plan.ts
+  s_66a50db30640bc::t_2846d828ed650e 1-129
+targets/widget/RakatWidget.swift
+  s_66a50db30640bc::t_885170f397bad6 1-68,70-280,284-304
+  s_66a50db30640bc::t_010f34fcbad214 69
+  s_66a50db30640bc::t_7e68c22fc3fdaa 281-283
+src/prayer/times.test.ts
+  s_66a50db30640bc::t_d758686e995cc6 1-26,33-40,51-87,91,105-278
+  s_66a50db30640bc::t_546599e1f50852 27-32,41-50
+  s_66a50db30640bc::t_80fb188990a298 88-90,92-104
+  s_66a50db30640bc::t_19f7687e08c0cb 279-284
+assets/fonts/licenses/Amiri-OFL.txt
+  s_66a50db30640bc::t_48e1c5cee25ecc 1-94
+src/components/screen.tsx
+  s_66a50db30640bc::t_05be52da9fa441 2
+  s_66a50db30640bc::t_1ef097c8cfee23 1,5,7-30,32-33,42,44-46,51-52,58,60-62
+  s_66a50db30640bc::t_b472284a1ffe21 53-57
+  s_66a50db30640bc::t_8e8e4eeea22a86 3,31,34-41,59
+  s_66a50db30640bc::t_db1471b9bcd17d 43,47-48,50
+src/prayer/hijri.ts
+  s_66a50db30640bc::t_21cb0212e604b4 1-75,80-83
+  s_66a50db30640bc::t_e8bf86d608ecec 76-79
+src/components/app-tabs.tsx
+  s_66a50db30640bc::t_f8763e837952a3 3,5-8,12,14,18-20,24,31,33-34,36-39,41-44
+  s_66a50db30640bc::t_e167307a01e083 9-11
+  s_66a50db30640bc::t_6e3672c05f2c5f 21,25,35,40,45
+  s_66a50db30640bc::t_098e21c2825c5f 22,28-30
+  s_66a50db30640bc::t_c40bf6a801b306 32
+src/qibla/use-heading.ts
+  s_66a50db30640bc::t_870a9ae72b7c16 1-8,15-21,23,27,37-38,40,42-44,49,58-59,61,66,69-70,72-80,83-90,95-106,110,112-113,120-121,124-134,141-152,155-160,165-173,179-190
+  s_66a50db30640bc::t_650039db80cd25 9-14,22,24-26,28-36,39,41,45-48,50-57,60,62-65,67-68,71,81-82,91-94,107-109,111,114-119,122-123,135-140,153-154,161-164,174-178
+src/qibla/dial-geometry.ts
+  s_66a50db30640bc::t_cdce072cf1e958 1-44
+targets/ActivityMonitorExtension/DeviceActivityMonitorExtension.swift
+  s_66a50db30640bc::t_e14e803d514b63 1-201
+src/hooks/use-theme.ts
+  s_66a50db30640bc::t_eb46a0ae196ad5 2-9,13-25,27-39,41-54,56-86
+  s_66a50db30640bc::t_6e3672c05f2c5f 87
+src/quran/verify.test.ts
+  s_66a50db30640bc::t_c07b703aa6cce1 1-124,139-210
+  s_66a50db30640bc::t_3670c1cd4b61d0 125-138
+src/tracker/consistency.ts
+  s_66a50db30640bc::t_b61aac1397e09f 1-52
+targets/ShieldConfiguration/expo-target.config.js
+  s_66a50db30640bc::t_e14e803d514b63 1-5
+src/notify/plan.test.ts
+  s_66a50db30640bc::t_0990b387765e50 1-126
+src/constants/theme.ts
+  s_66a50db30640bc::t_25280897d32135 2-11,15,17,20-24,27-31,37-54,57-58
+  s_66a50db30640bc::t_0d19a530e91228 59
+REVIEW.md
+  s_66a50db30640bc::t_122e9eacfadabf 1-38,54-92,99-126,162-197,237-260
+  s_66a50db30640bc::t_09c6b332be1524 127-161
+  s_66a50db30640bc::t_268fc6d2a608a4 198-236
+  s_66a50db30640bc::t_d21eeb89a04e0b 39-53
+  s_66a50db30640bc::t_c7f7b7fef3d517 93-98
+src/app/(tabs)/_layout.tsx
+  s_66a50db30640bc::t_59cc48dfbf12df 1-5
+src/app/(tabs)/reader.tsx
+  s_66a50db30640bc::t_06e3b774d8c8f4 6,214
+  s_66a50db30640bc::t_399b51dc5ffd0c 31-33,45-52,54-55
+  s_66a50db30640bc::t_b2d5e88417571f 4-5,10,13,15,24-28,56,89,188,233-237,239-245,247-248,251,253-257,275,279,288-289,320,348-349
+  s_66a50db30640bc::t_30b3876cf0a461 1-2,7-9,11-12,14,16-23,29-30,34-44,53,57-88,90-187,189-195,197-213,215-232,238,246,249-250,252,258-274,276-278,280-287,290-319,321-347
+  s_66a50db30640bc::t_08e64fe8d8bbf7 3,196
+src/lock/use-lock-sync.ts
+  s_66a50db30640bc::t_9a42346c4099a3 32-33,72
+  s_66a50db30640bc::t_ec067720ee4f22 1-8,11-27,29-31,39-52,62-68,70,73
+  s_66a50db30640bc::t_488eef53ff200e 9-10,28,34-38,53-61,69,71
+assets/fonts/licenses/Archivo-OFL.txt
+  s_66a50db30640bc::t_48e1c5cee25ecc 1-93
+src/prayer/times.ts
+  s_66a50db30640bc::t_d4cd53c95ed2e0 1-88,108,111-171
+  s_66a50db30640bc::t_8ddead1ceeefc2 89-107,109-110
+src/tracker/menses.ts
+  s_66a50db30640bc::t_87fbca9f6d5939 1-23,25-129,131,133
+  s_66a50db30640bc::t_edbea985f2b359 24
+  s_66a50db30640bc::t_f14fc35371c8db 130,132
+targets/ShieldAction/Info.plist
+  s_66a50db30640bc::t_e14e803d514b63 1-15
+src/quran/daily-ayah.ts
+  s_66a50db30640bc::t_6ea58d21f929de 4-7,9-15,18-20,37-38,40-60,62-64
+  s_66a50db30640bc::t_7d1c21de00b88f 1-3,8,16-17,21-36,39,61
+src/prayer/labels.ts
+  s_66a50db30640bc::t_a992057a51158c 1-26
+src/lock/engine.ts
+  s_66a50db30640bc::t_80ae2a469d068b 1-17,19-33,44-48,54-79,89-92,94-103,125-162,164-167
+  s_66a50db30640bc::t_f3a1ecec536d3a 18,80-88,93,104-124,163
+  s_66a50db30640bc::t_494552f9b5e406 34-43,49-53
+src/components/offset-settings.tsx
+  s_66a50db30640bc::t_10f63ede8da86a 3,35-36,41,48
+  s_66a50db30640bc::t_0980874b279281 1-2,4-34,37-40,42-47,49-149
+src/tracker/qada.ts
+  s_66a50db30640bc::t_68bd25f54cda5c 1-198
+src/lock/prayed.ts
+  s_66a50db30640bc::t_d9587918648248 1-148
+eslint.config.js
+  s_66a50db30640bc::t_a3280946cb05ff 1-10
+src/prayer/methods.ts
+  s_66a50db30640bc::t_039616adb31868 1-115,117-185,188-205
+  s_66a50db30640bc::t_0d56aafe3d77d6 186-187
+  s_66a50db30640bc::t_b2e2147c94dee1 116
+src/lock/flags.ts
+  s_66a50db30640bc::t_5cb40f48f9c166 1-31
+scripts/gen-theme.ts
+  s_66a50db30640bc::t_6ccb790699c773 85-87
+  s_66a50db30640bc::t_d78503f8ae53a4 1-84,88-109
+src/quran/checksums.json
+  s_66a50db30640bc::t_d41a05a014c328 1-42
+src/qibla/dial-geometry.test.ts
+  s_66a50db30640bc::t_7acee3365185ab 1-69
+tasks/todo.md
+  s_66a50db30640bc::t_c0db3f84b892c8 1-24,45-47,66-67,75-77,90-92,102,105-107,111-113,117-134
+  s_66a50db30640bc::t_62b2f5b9fc70aa 34-42,71-74,78-89,103-104
+  s_66a50db30640bc::t_add17da79ce062 50-65,93-101
+  s_66a50db30640bc::t_dcf4d6d89e83fe 25-33,43-44,48-49,68-70,108-110,114-116,135-150
+src/app/(tabs)/index.tsx
+  s_66a50db30640bc::t_8f8fe32ed1bbe3 13,15,18,40-51,107,152,200-219,230,353-355
+  s_66a50db30640bc::t_1c4b458cb74947 169-177,179
+  s_66a50db30640bc::t_399b51dc5ffd0c 1
+  s_66a50db30640bc::t_06e3b774d8c8f4 12,156,247
+  s_66a50db30640bc::t_7c7be269dd84f2 345-348
+  s_66a50db30640bc::t_f5eda579503418 39,52-57,59,63-89,165-168
+  s_66a50db30640bc::t_bd69333427b2a1 60-62
+  s_66a50db30640bc::t_0a57d6dee06619 2-9,58
+  s_66a50db30640bc::t_b2d5e88417571f 10-11,14,16-17,19-38,90-106,108-113,128-151,153-155,157-164,178,180-199,220-229,231-246,248-344,349-352,356-409
+  s_66a50db30640bc::t_6925390f3d17df 114-127
+src/lock/monitor.test.ts
+  s_66a50db30640bc::t_8e75bddc1ea4f4 1-93,97-98,100,106-122
+  s_66a50db30640bc::t_dc64159308bb28 94-96,99,101-105
+HANDOFF.md
+  s_66a50db30640bc::t_29abd3411bdafe 75-76,78-79,86-92
+  s_66a50db30640bc::t_147e668de8577e 1-32,57-74,77,80-85,93-148,166-190
+  s_66a50db30640bc::t_d1d8112e9c0dae 33-56
+  s_66a50db30640bc::t_cdbdf86f437d9e 149-165
+eas.json
+  s_66a50db30640bc::t_f843ca509d389c 1-25
+src/components/athan-settings.tsx
+  s_66a50db30640bc::t_b3fd41a6af5ae3 1-116
+src/tracker/qada.test.ts
+  s_66a50db30640bc::t_05d85376edc578 1-203
+src/store/location.ts
+  s_66a50db30640bc::t_05018705783b73 1-114
+src/components/lock-settings.tsx
+  s_66a50db30640bc::t_583c0a670278ce 1-146
+src/widgets/bridge.ts
+  s_66a50db30640bc::t_1bdda0f3ed4a3d 11,67-73,76
+  s_66a50db30640bc::t_1ef079b25ff661 1-10,12-66,74-75,77-78
+src/qibla/bearing.test.ts
+  s_66a50db30640bc::t_6c6ff74dd6d732 1-249
+scripts/build-quran-db.ts
+  s_66a50db30640bc::t_cac0d964bdf871 25,73-74,297-299,309
+  s_66a50db30640bc::t_e509a3a1e8eeef 98,100,105-106,108,140-141,143-147,153
+  s_66a50db30640bc::t_16509e633e6398 93-97,101-104,107,148-152
+  s_66a50db30640bc::t_09f86557526809 30-37,77-83,142
+  s_66a50db30640bc::t_5ad3ab13ee0270 1-24,26-29,38-72,75-76,84-92,99,109-129,132-139,154-296,300-308,310-319
+  s_66a50db30640bc::t_c80483a44bdf86 130-131
+src/store/tracker.ts
+  s_66a50db30640bc::t_0eef172d20cee3 112-127,137,141-142,144,149,151,162-167,170-171,173,178,180,182-183,187,194,200
+  s_66a50db30640bc::t_0a641f2321f942 217-220,222-232,234-235
+  s_66a50db30640bc::t_938cba64174566 1,4,15-27,44,47,50-51,54,62,66,68,78,86-88,90,129,133,154-157,161,168-169,172,174-177,179,181,184,186,188-189,202-208,237
+  s_66a50db30640bc::t_09a77f32f098b0 2-3,5-14,28-43,45-46,48-49,52-53,63,69-70,74,79-81,85,89,91-98,106,108-111,128,130-132,134-136,138-140,143,145-148,150,152-153,158-160,185,190-193,195-199,201,209-216,221,233,236
+  s_66a50db30640bc::t_f5c3b1a541ddbe 55-61,64-65,67,71-73,75-77,82-84
+  s_66a50db30640bc::t_70e3b9b7504fc3 99-105,107
+src/app/(tabs)/qibla.tsx
+  s_66a50db30640bc::t_9d48c58203e227 1-2,4-7,9,11-21,23-29,73-80,84-86,90-94,96-114,116-119,123-128,130-137,140-148,156,166-169,173-185,187-229,240-241,243,247-303
+  s_66a50db30640bc::t_974f1d2625c0f6 149-155,157-165
+  s_66a50db30640bc::t_c3e1cf96dd6578 3,8,10,22,30-72,81-83,87-89,95,115,120-122,129,138-139,170-172,186,242,244-246
+  s_66a50db30640bc::t_8063ca5ec5a34e 230-239
+targets/ActivityMonitorExtension/Info.plist
+  s_66a50db30640bc::t_e14e803d514b63 1-16
+targets/widget/expo-target.config.js
+  s_66a50db30640bc::t_1bdda0f3ed4a3d 1
+  s_66a50db30640bc::t_7e68c22fc3fdaa 10-13
+  s_66a50db30640bc::t_9ad91dc12b6a0c 2-9,25
+  s_66a50db30640bc::t_670d2fd3039591 14-24
+assets/fonts/licenses/Newsreader-OFL.txt
+  s_66a50db30640bc::t_48e1c5cee25ecc 1-93
+src/tracker/menses.test.ts
+  s_66a50db30640bc::t_2375813777cd42 1-175
+assets/fonts/licenses/AmiriQuran-OFL.txt
+  s_66a50db30640bc::t_48e1c5cee25ecc 1-93
+src/prayer/settings.test.ts
+  s_66a50db30640bc::t_325e5b01384c60 1-107
+src/app/_layout.tsx
+  s_66a50db30640bc::t_59cc48dfbf12df 14,42-44,47,52-55
+  s_66a50db30640bc::t_d7ad01a3a5257b 8,16-18
+  s_66a50db30640bc::t_b6eab8299948ac 1
+  s_66a50db30640bc::t_0e9790d91803ff 2,4,19-20,25-36,39-41,48-49
+  s_66a50db30640bc::t_5cbcc7c5e50069 7,15,45-46
+  s_66a50db30640bc::t_18622e24cac03b 12,21-24,37-38
+modules/rakat-blocking/android/src/main/res/values-night/colors.xml
+  s_66a50db30640bc::t_cd7793955f851c 1-13
+src/quran/attribution.ts
+  s_66a50db30640bc::t_fa2e28a848c52c 1-115
+targets/ShieldAction/ShieldActionExtension.swift
+  s_66a50db30640bc::t_e14e803d514b63 1-273
+targets/ShieldConfiguration/Info.plist
+  s_66a50db30640bc::t_e14e803d514b63 1-15
+src/quran/curated.ts
+  s_66a50db30640bc::t_d41a05a014c328 1-259
+targets/ShieldAction/expo-target.config.js
+  s_66a50db30640bc::t_e14e803d514b63 1-5
+AGENTS.md
+  s_66a50db30640bc::t_842896ca400bbf 4-35,37-54
+  s_66a50db30640bc::t_be7c19eb1fb310 36
+targets/ShieldConfiguration/ShieldConfigurationExtension.swift
+  s_66a50db30640bc::t_e14e803d514b63 1-229
+src/hooks/use-haptics.ts
+  s_66a50db30640bc::t_3137ebe31e3649 1-39
+src/widgets/state.test.ts
+  s_66a50db30640bc::t_03707f9f2716d7 34
+  s_66a50db30640bc::t_473bf564597e83 1-33,35-78
+src/quran/db.ts
+  s_66a50db30640bc::t_de3fd39fb1efdc 1-58,69-70,72-125
+  s_66a50db30640bc::t_827fd365dc10c8 59-68,71
+src/lock/window.ts
+  s_66a50db30640bc::t_4bc99896e5fd3d 148-149,152
+  s_66a50db30640bc::t_9046d8e6e6aaa3 1-147,150-151,153-210
+tsconfig.json
+  s_66a50db30640bc::t_de35e56b91071b 12-17
+targets/ActivityMonitorExtension/expo-target.config.js
+  s_66a50db30640bc::t_e14e803d514b63 1-5
+tasks/local-test.md
+  s_66a50db30640bc::t_e8c3036c63cc58 1-108
+app.json
+  s_66a50db30640bc::t_f958c19351e075 52
+  s_66a50db30640bc::t_bf97768fde8abc 45
+  s_66a50db30640bc::t_3ba5dbb76784f9 50,54,56-64
+  s_66a50db30640bc::t_00a9fcdcc9e34b 25,42-44,46-47,49
+  s_66a50db30640bc::t_34a836df23fcc2 12-21,53,55,65-67
+  s_66a50db30640bc::t_f843ca509d389c 3,11,30-31,51,74-80
+package.json
+  s_66a50db30640bc::t_7fee98fefd72cd 56-57
+  s_66a50db30640bc::t_685a0e2b616251 28
+  s_66a50db30640bc::t_1bdda0f3ed4a3d 7
+  s_66a50db30640bc::t_de35e56b91071b 43
+  s_66a50db30640bc::t_f958c19351e075 19-20,22,24
+  s_66a50db30640bc::t_a3280946cb05ff 45-48,53-54
+  s_66a50db30640bc::t_a813600cbc0699 33
+  s_66a50db30640bc::t_cd7793955f851c 58
+  s_66a50db30640bc::t_b1013d44247855 8-9,11,16,38,59-60
+targets/widget/Theme.swift
+  s_66a50db30640bc::t_6ccb790699c773 1-47
+src/lock/shield.test.ts
+  s_66a50db30640bc::t_10b1df3f280e07 1-94
+targets/widget/Info.plist
+  s_66a50db30640bc::t_9ad91dc12b6a0c 1-27,29-31
+  s_66a50db30640bc::t_010f34fcbad214 28
+src/widgets/use-widget-sync.ts
+  s_66a50db30640bc::t_b242a05c06cb43 1-37
+src/components/ayah-card.tsx
+  s_66a50db30640bc::t_9da3bba5544cfd 4,31,37-46,81-86,88
+  s_66a50db30640bc::t_3b97b343a3ef2a 1-3,5-30,32-36,47-80,87,89-95
+src/lock/prayed.test.ts
+  s_66a50db30640bc::t_1450d8e9a929d7 1-178
+src/store/settings.ts
+  s_66a50db30640bc::t_0cd8a995918803 1-76
+  s_66a50db30640bc::t_5cbcc7c5e50069 77-126
+  s_66a50db30640bc::t_90533dc7ba586d 165-205
+  s_66a50db30640bc::t_35471a302d73c6 127-164
+src/qibla/bearing.ts
+  s_66a50db30640bc::t_198c026ef9fec9 1-143
+src/quran/verify.ts
+  s_66a50db30640bc::t_ab202c396e29ea 1-124
+src/lock/schedule.test.ts
+  s_66a50db30640bc::t_18f4b0ab98f835 1-355
+design/directions.html
+  s_66a50db30640bc::t_d0ca2fa614395d 1-704
+package-lock.json
+  s_66a50db30640bc::t_366ee501d36d10 1-13586
+vitest.config.mts
+  s_66a50db30640bc::t_100cf069700cdc 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "3547090dab80937564d805b0ea11b6762491f346",
+  "prompts": {},
+  "sessions": {
+    "s_66a50db30640bc": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ebc49d2e-7552-4fc0-9a10-c1d0ce5b185a",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Damian Gross <grosdamian@gmail.com>"
+    }
+  }
+}
